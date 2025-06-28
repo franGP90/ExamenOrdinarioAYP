@@ -15,6 +15,6 @@ type Query{
 
 type Mutation{
     deleteRestaurant(id:ID!): Boolean!
-    addRestaurant(name:String!,address:String!,phone:String!):Restaurant
+    addRestaurant(name:String!,address:String!,phone:String!, city:String!):Restaurant
 }
 `;
