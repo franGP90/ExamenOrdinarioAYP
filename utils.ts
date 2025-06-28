@@ -30,6 +30,10 @@ export const getCity = async(
         ) 
     );*/
 
+    if (!data.latitude || !data.longitude || !data.country) {
+  throw new Error("Ciudad con datos incompletos:");
+}
+
     return {latitude: data.latitude, longitude: data.longitude, country: data.country}
 }
 
