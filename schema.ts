@@ -9,7 +9,7 @@ type Restaurant{
 }
 
 type Query{
- getRestaurants(city:string!): [Restaurant!]!
+ getRestaurants(city:String!): [Restaurant!]!
  getRestaurant(id:ID!):Restaurant
 }
 
