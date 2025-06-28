@@ -1,4 +1,4 @@
-export const schema = `#graphql
+export const typeDefs = `#graphql
 type Restaurant{
     id: ID!
     name:String!,
@@ -17,4 +17,4 @@ type Mutation{
     deleteRestaurant(id:ID!): Boolean!
     addRestaurant(name:String!,address:String!,phone:String!):Restaurant
 }
-`
+`;
