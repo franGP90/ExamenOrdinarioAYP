@@ -11,9 +11,10 @@ if(!MONGO_URL){
   throw new Error("Mongo url is not defined");
 }
 
-try{
+
 const mongoClient = new MongoClient(MONGO_URL);
-await mongoClient.connect;
+try{await mongoClient.connect;}catch{throw new Error("Fallo al conectarse al cliente")}
+
 
 const mongodb = mongoClient.db("ExamenOrdinario");
 
@@ -30,6 +31,4 @@ const { url } = await startStandaloneServer(server, {
 
 console.info(`Server ready at ${url}`);
 
-}catch(e){
-  throw new Error("Fallo al conectarse a la base de datos");
-}
+
