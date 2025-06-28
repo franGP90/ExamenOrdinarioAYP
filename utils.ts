@@ -4,7 +4,7 @@ import { weatherAPI, cityAPI, countryAPI } from "./types.ts";
 export const getCity = async(
     name:string
 ):Promise<{latitude:string, longitude:string, country:string }> =>{
-    const API_KEY = Deno.env.get("API_KEY");
+    const API_KEY = "fvnsynmnoJGgoY7r5cLH2w==qPZBPBN0FtBPbnQI";
     if(!API_KEY){
         throw new Error("API_KEY is not defined")
     }
@@ -37,7 +37,7 @@ export const getWeather = async(
     latitude:string,
     longitude:string
 ):Promise<number> =>{
-    const API_KEY = Deno.env.get("API_KEY")
+    const API_KEY = "fvnsynmnoJGgoY7r5cLH2w==qPZBPBN0FtBPbnQI"
     if(!API_KEY){
         throw new Error("API_KEY is not defined")
     }
@@ -60,7 +60,7 @@ export const getWeather = async(
 export const getCountry = async(
     name:string
 ):Promise<countryAPI>=>{
-    const API_KEY= Deno.env.get("API_KEY");
+    const API_KEY= "fvnsynmnoJGgoY7r5cLH2w==qPZBPBN0FtBPbnQI";
     if(!API_KEY){
         throw new Error("API_KEY not specified")
     }
