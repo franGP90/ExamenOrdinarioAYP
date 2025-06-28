@@ -26,7 +26,7 @@ export const resolvers={
     },
 
     Query: {
-        getRstaurants: async(
+        getRestaurants: async(
             _:unknown,
             {city}:{city:string},
             ctx: context,
