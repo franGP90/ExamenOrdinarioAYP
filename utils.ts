@@ -83,7 +83,8 @@ export const getLocaltime = async(
     city:string
 ):Promise<string>=>{
     const API_KEY = "fvnsynmnoJGgoY7r5cLH2w==qPZBPBN0FtBPbnQI"
-    const url = `https://api.api-ninjas.com/v1/timezone?city=${city}`
+    const url = `https://api.api-ninjas.com/v1/worldtime?city=${city}`
+
 
     const response = await fetch(url,
      {
