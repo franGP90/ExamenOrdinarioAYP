@@ -24,7 +24,7 @@ export const resolvers={
             return await getWeather(latitude, longitude);
         },   
 
-        localtime: async (parent: RestaurantModel, _: unknown, ctx: context) => {
+        local_time: async (parent: RestaurantModel, _: unknown, ctx: context) => {
       const { city } = parent;
       return await getLocaltime(city);
     },
