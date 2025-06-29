@@ -8,10 +8,12 @@ export type RestaurantModel = OptionalId<{
     phone:string,
     latitude: string;
   longitude: string;
+  local_time: string;
 }>
 
 export type weatherAPI = {temp:number}
 
 export type cityAPI = Array<{latitude:string, longitude:string, country:string}>
 
+export type localtimeAPI = {local_time:string}
 export type countryAPI = {country:string}

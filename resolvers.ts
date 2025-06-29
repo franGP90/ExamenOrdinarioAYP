@@ -1,6 +1,6 @@
 import { Collection,ObjectId } from "mongodb";
 import { cityAPI, RestaurantModel } from "./types.ts";
-import { getCity, getWeather, getCountry } from "./utils.ts";
+import { getCity, getWeather, getCountry, getLocaltime } from "./utils.ts";
 import{GraphQLError} from "graphql";
 
 type context ={
@@ -62,6 +62,8 @@ export const resolvers={
             throw new GraphQLError("Introduced city is not valid")
          }
          const {latitude, longitude, country} = cityData
+         const ltime = await getLocaltime({city: city})
+         const {local_time} = ltime
 
          const {insertedId} = await ctx.RestaurantsCollection.insertOne({
         name,
@@ -71,6 +73,7 @@ export const resolvers={
         country,
         latitude,
         longitude,
+        local_time
          });
 
          return {
@@ -82,6 +85,7 @@ export const resolvers={
             country,
             latitude,
             longitude,
+            local_time,
          }
             
      },

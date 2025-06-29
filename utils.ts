@@ -1,5 +1,5 @@
 import { isDataView } from "node:util/types";
-import { weatherAPI, cityAPI, countryAPI } from "./types.ts";
+import { weatherAPI, cityAPI, countryAPI, localtimeAPI } from "./types.ts";
 
 export const getCity = async(
     name:string
@@ -77,4 +77,22 @@ export const getCountry = async(
 
     const data: countryAPI = await response.json();
     return data;
+}
+
+export const getLocaltime = async(
+    {city}:{city:string}
+):Promise<{local_time:string}>=>{
+    const API_KEY = "fvnsynmnoJGgoY7r5cLH2w==qPZBPBN0FtBPbnQI"
+    const url = `https://api.api-ninjas.com/v1/timezone?city=${city}`
+
+    const response = await fetch(url,
+     {
+        headers:{
+        "X-Api-Key":API_KEY
+     }   
+     }   
+    )
+
+    const data:localtimeAPI = await response.json()
+    return {local_time: data.local_time};
 }

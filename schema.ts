@@ -5,7 +5,7 @@ type Restaurant{
     address:String!,
     weather:String!,
     phone:String!,
-    localTime:String!
+    local_time:String!
 }
 
 type Query{
