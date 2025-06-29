@@ -84,6 +84,16 @@ export const resolvers={
             longitude,
          }
             
-     }} 
-     
-}
+     },
+
+     deleteRestaurant: async(
+        _:unknown,
+        {id}:{id:string},
+        ctx:context,
+     ):Promise<boolean>=>{
+        const deleted = await ctx.RestaurantsCollection.deleteOne({_id: new ObjectId(id)})
+        return deleted ? true:false
+        },
+
+    }
+     }
