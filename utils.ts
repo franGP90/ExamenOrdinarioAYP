@@ -88,7 +88,6 @@ export const getLocaltime = async(
     const cityData = cityExists.at(0)
     if(!cityData){throw new Error("No se han podido obtener los datos de la ciudad")}
     const {latitude, longitude} = cityData
-    if(!latitude|| !longitude){throw new Error("Fallo al obtener latitud y longitudS")}
 
     const url = `https://api.api-ninjas.com/v1/worldtime?lat=${latitude}&lon=${longitude}`
 
@@ -105,8 +104,9 @@ export const getLocaltime = async(
     }
 
     const data:localtimeAPI = await response.json()
+    const result:string = data.toString()
     if(!data.local_time){
-        throw new Error("No se ha podido obtener el tiempo local \n" + data.toString())
+        throw new Error("No se ha podido obtener el tiempo local \n" + result)
     }
     return data.local_time;
 }
