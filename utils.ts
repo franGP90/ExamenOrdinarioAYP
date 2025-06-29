@@ -92,6 +92,10 @@ export const getLocaltime = async(
      }   
      })
 
+      if(!response.ok){
+        throw new Error("Failed to fetch timezone")
+    }
+
     const data:localtimeAPI = await response.json()
     if(!data.local_time){
         throw new Error("No se ha podido obtener el tiempo local ")
