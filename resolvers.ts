@@ -23,6 +23,11 @@ export const resolvers={
             const { latitude, longitude } = parent;
             return await getWeather(latitude, longitude);
         },   
+
+        localtime: async (parent: RestaurantModel, _: unknown, ctx: context) => {
+      const { city } = parent;
+      return await getLocaltime(city);
+    },
     },
 
     Query: {
