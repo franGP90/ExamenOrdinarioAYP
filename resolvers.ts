@@ -92,7 +92,7 @@ export const resolvers={
         ctx:context,
      ):Promise<boolean>=>{
         const deleted = await ctx.RestaurantsCollection.deleteOne({_id: new ObjectId(id)})
-        return deleted ? true:false
+        return deleted.deletedCount === 1
         },
 
     }
