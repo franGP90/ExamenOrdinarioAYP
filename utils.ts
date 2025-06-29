@@ -83,7 +83,11 @@ export const getLocaltime = async(
     city:string
 ):Promise<string>=>{
     const API_KEY = "fvnsynmnoJGgoY7r5cLH2w==qPZBPBN0FtBPbnQI"
-    const url = `https://api.api-ninjas.com/v1/worldtime?city=${city}`
+    const citys = await getCity(city);
+    const cityData = citys.at(0)
+    if(!cityData){throw new Error("No se han podido obtener los datos de la ciudad")}
+    const {latitude, longitude} = cityData
+    const url = `https://api.api-ninjas.com/v1/worldtime?lat=${latitude}&lon=${longitude}`
 
 
     const response = await fetch(url,
