@@ -57,10 +57,11 @@ export const resolvers={
          }
          
          const cityExists = await getCity(city);
-         if(!cityExists){
+         const cityData = cityExists.at(0);
+         if(!cityData){
             throw new GraphQLError("Introduced city is not valid")
          }
-         const {latitude, longitude, country} = cityExists
+         const {latitude, longitude, country} = cityData
 
          const {insertedId} = await ctx.RestaurantsCollection.insertOne({
         name,

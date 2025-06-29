@@ -3,7 +3,7 @@ import { weatherAPI, cityAPI, countryAPI } from "./types.ts";
 
 export const getCity = async(
     name:string
-):Promise<{latitude:string, longitude:string, country:string }> =>{
+):Promise<Array<{latitude:string, longitude:string, country:string }>> =>{
     const API_KEY = "fvnsynmnoJGgoY7r5cLH2w==qPZBPBN0FtBPbnQI";
     if(!API_KEY){
         throw new Error("API_KEY is not defined")
@@ -23,18 +23,13 @@ export const getCity = async(
 
     const data:cityAPI = await response.json();
     
-   /* const result = await Promise.all(
+   const result = await Promise.all(
         data.map(async(city) =>{
             return{latitude: city.latitude, longitude: city.longitude, country:city.country}
         }  
         ) 
-    );*/
-
-    if (!data.latitude || !data.longitude || !data.country) {
-  throw new Error("Ciudad con datos incompletos:");
-}
-
-    return {latitude: data.latitude, longitude: data.longitude, country: data.country}
+    );
+ return result
 }
 
 export const getWeather = async(

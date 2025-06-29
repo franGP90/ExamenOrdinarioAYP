@@ -12,6 +12,6 @@ export type RestaurantModel = OptionalId<{
 
 export type weatherAPI = {temp:number}
 
-export type cityAPI = {latitude:string, longitude:string, country:string}
+export type cityAPI = Array<{latitude:string, longitude:string, country:string}>
 
 export type countryAPI = {country:string}
