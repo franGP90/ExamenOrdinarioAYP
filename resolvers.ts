@@ -62,8 +62,8 @@ export const resolvers={
             throw new GraphQLError("Introduced city is not valid")
          }
          const {latitude, longitude, country} = cityData
-         const ltime = await getLocaltime({city: city})
-         const {local_time} = ltime
+         const local_time = await getLocaltime(city)
+       
 
          const {insertedId} = await ctx.RestaurantsCollection.insertOne({
         name,

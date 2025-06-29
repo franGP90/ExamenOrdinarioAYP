@@ -80,8 +80,8 @@ export const getCountry = async(
 }
 
 export const getLocaltime = async(
-    {city}:{city:string}
-):Promise<{local_time:string}>=>{
+    city:string
+):Promise<string>=>{
     const API_KEY = "fvnsynmnoJGgoY7r5cLH2w==qPZBPBN0FtBPbnQI"
     const url = `https://api.api-ninjas.com/v1/timezone?city=${city}`
 
@@ -90,9 +90,8 @@ export const getLocaltime = async(
         headers:{
         "X-Api-Key":API_KEY
      }   
-     }   
-    )
+     })
 
     const data:localtimeAPI = await response.json()
-    return {local_time: data.local_time};
+    return data.local_time;
 }
