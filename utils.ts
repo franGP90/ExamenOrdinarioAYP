@@ -98,7 +98,7 @@ export const getLocaltime = async(
 
     const data:localtimeAPI = await response.json()
     if(!data.local_time){
-        throw new Error("No se ha podido obtener el tiempo local \n" + data)
+        throw new Error("No se ha podido obtener el tiempo local \n" + data.toString())
     }
     return data.local_time;
 }
