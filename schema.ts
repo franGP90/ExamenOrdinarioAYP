@@ -3,7 +3,7 @@ type Restaurant{
     id: ID!
     name:String!,
     address:String!,
-    weather:String!,
+    weather:Int!,
     phone:String!,
     local_time:String!
 }
