@@ -25,8 +25,8 @@ export const resolvers={
         },   
 
         local_time: async (parent: RestaurantModel, _: unknown, ctx: context) => {
-      const { city } = parent;
-      return await getLocaltime(city);
+        const { city } = parent;
+        return await getLocaltime(city);
     },
     },
 
@@ -67,7 +67,7 @@ export const resolvers={
             throw new GraphQLError("Introduced city is not valid")
          }
          const {latitude, longitude, country} = cityData
-         const local_time = await getLocaltime(city)
+
        
 
          const {insertedId} = await ctx.RestaurantsCollection.insertOne({
@@ -78,7 +78,7 @@ export const resolvers={
         country,
         latitude,
         longitude,
-        local_time
+
          });
 
          return {
@@ -90,7 +90,7 @@ export const resolvers={
             country,
             latitude,
             longitude,
-            local_time,
+
          }
             
      },
