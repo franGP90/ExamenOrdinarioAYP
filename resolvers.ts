@@ -17,7 +17,7 @@ type AddRestaurantMutationArgs = {
 
 export const resolvers={
     Restaurant: {
-        id:(parent:RestaurantModel) => parent._id!.toString,
+        id:(parent:RestaurantModel) => parent._id!.toString(),
         address:(parent:RestaurantModel)=> `${parent.address},${parent.city},${parent.country}`,
         weather:async (parent:RestaurantModel,_:unknown,ctx:context)=> {
             const { latitude, longitude } = parent;
